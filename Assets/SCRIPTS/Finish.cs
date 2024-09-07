@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class Finish : MonoBehaviour
 {
     [SerializeField] UnityEvent finishEvent;
+    
     void OnTriggerEnter(Collider collider)
     {
         Debug.Log("Something in the trigger area");
