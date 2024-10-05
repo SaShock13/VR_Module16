@@ -340,7 +340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444592e48d6fc0e4ebf2b1e35d48a097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bodyTransform: {fileID: 429506}
+  cameraTransform: {fileID: 429506}
+  offset: {x: 0, y: -0.7, z: 0}
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1731d642c0b250b48bb8cdfb153d9792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 0}
+  head: {fileID: 429506}
 --- !u!54 &5475726
 Rigidbody:
   m_ObjectHideFlags: 0

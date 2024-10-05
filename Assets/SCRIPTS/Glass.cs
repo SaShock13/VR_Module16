@@ -12,9 +12,15 @@ public class Glass : MonoBehaviour
         if (collision.collider.CompareTag("Heavy"))
         {
             Debug.Log("Heavy Collision");
-            brokenGlass.SetActive(true);
-            gameObject.SetActive(false);
-            Destroy(this, 1.5f); 
+            BrokeGlass();
         }
+    }
+
+    public void BrokeGlass()
+    {
+        brokenGlass.SetActive(true);
+        gameObject.SetActive(false);
+        Destroy(gameObject);
+        Destroy(brokenGlass, 1.5f);
     }
 }

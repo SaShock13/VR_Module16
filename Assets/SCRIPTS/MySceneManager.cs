@@ -6,16 +6,24 @@ using UnityEngine.SceneManagement;
 public class MySceneManager : MonoBehaviour
 {
     [SerializeField] GameObject menuPanel;
+    [SerializeField] GameObject environment;
+    private void Awake()
+    {
+        //environment.SetActive(false);
+    }
+
     public void StartGame()
     {
         Debug.Log("Game is begin");
-        menuPanel.SetActive(false);
+        environment.SetActive(true);
     }
 
     public void RestartGame()
     {
         Debug.Log("Game is restarted");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        environment.SetActive(true);
     }
 
     public void QuitGame()

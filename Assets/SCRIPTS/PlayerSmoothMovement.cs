@@ -18,6 +18,7 @@ public class PlayerSmoothMovement : MonoBehaviour
     private void Awake()
     {   
         _volume = FindObjectOfType<PostProcessVolume>();
+        _volume.enabled = true;
         characterController = GetComponent<CharacterController>();
     }
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CharqacterSync : MonoBehaviour
 {
-    [SerializeField] Transform bodyTransform;
+    [SerializeField] Transform cameraTransform;
+    [SerializeField] Vector3 offset;
     CharacterController characterController;
 
     private void Awake()
@@ -13,6 +14,13 @@ public class CharqacterSync : MonoBehaviour
     }
     private void Update()
     {
-        characterController.transform.position = new Vector3(bodyTransform.position.x, characterController.transform.position.y,bodyTransform.position.z);
+
+
+        Vector3 cameraPosition = cameraTransform.position;
+        cameraPosition.y = characterController.transform.position.y;        
+        characterController.center = transform.InverseTransformPoint(cameraPosition-offset);
+
+
+        //characterController.transform.position = new Vector3(bodyTransform.position.x, characterController.transform.position.y,bodyTransform.position.z);
     }
 }
