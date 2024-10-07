@@ -24,6 +24,7 @@ public class TNT : MonoBehaviour
     [SerializeField] private GameObject meshes;
 
     public bool isCanStick = false;
+    private bool _issSticked = false;
 
     private float timer;
     private bool isTimerOn = false;
@@ -79,6 +80,7 @@ public class TNT : MonoBehaviour
     public void OnAttach()
     {
         rb.isKinematic = false;
+        _issSticked = false;
     }
 
 
@@ -86,14 +88,18 @@ public class TNT : MonoBehaviour
     {
         transform.parent = stickableSurface.transform.parent;
         rb.isKinematic = true;
+        _issSticked = true;
     }
     
 
     public void StartTimer()
     {
-        isTimerOn = true;
-        audioSource.clip = activation;
-        audioSource.Play();
+        if (_issSticked)
+        {
+            isTimerOn = true;
+            audioSource.clip = activation;
+            audioSource.Play(); 
+        }
     }
 
     public void Boom()

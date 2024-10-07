@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class Gun : MonoBehaviour
 {
@@ -11,8 +13,23 @@ public class Gun : MonoBehaviour
 
     private void Awake()
     {
+        
         _rb = GetComponent<Rigidbody>();
         transform.position = _homeTransform.position;
+        
+    }
+
+    private void OnHandHoverBegin(Hand hand)
+    {
+        hand.ShowGrabHint();
+        hand.ShowController();
+        
+    }
+    private void OnHandHoverEnd(Hand hand)
+    {
+        hand.HideGrabHint();
+        hand.HideController();
+        
     }
 
     public void OnAttach()

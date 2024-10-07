@@ -64,7 +64,13 @@ public class GunFire : MonoBehaviour
 
                 StartCoroutine(nameof(DeathBloom));
 
-            } 
+            }
+
+            if (hit.transform.gameObject.TryGetComponent<Damageable>(out Damageable damageable))
+            {
+                //hit.collider.isTrigger = true;
+                damageable.TakeDamage();
+            }
         }
 
     }
