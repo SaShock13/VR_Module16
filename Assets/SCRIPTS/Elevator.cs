@@ -54,7 +54,7 @@ public class Elevator : MonoBehaviour
     private void Move(MoveState moveState)
     {
         Transform finishTransform = moveState == MoveState.Up ? highPosition:lowPosition;
-        platform.transform.position = Vector3.Slerp(platform.transform.position, finishTransform.position, Time.fixedDeltaTime * speed);
+        platform.transform.position = Vector3.Lerp(platform.transform.position, finishTransform.position, Time.fixedDeltaTime * speed);
         if (platform.transform.position == finishTransform.position)
         {
             _isActive = false;

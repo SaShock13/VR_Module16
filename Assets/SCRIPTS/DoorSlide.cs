@@ -25,7 +25,7 @@ public class DoorSlide : MonoBehaviour
     private void FixedUpdate()
     {
         
-        doorTransform.position = Vector3.Slerp(startTransform.position,endTransform.position, linearDrive.linearMapping.value);
+        doorTransform.position = Vector3.Lerp(startTransform.position,endTransform.position, linearDrive.linearMapping.value);
     }
 
     IEnumerator PausedInit()
